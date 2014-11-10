@@ -62,4 +62,10 @@ Doorkeeper.configure do
   # skip_authorization do |resource_owner, client|
   #   client.superapp? or resource_owner.admin?
   # end
+
+  resource_owner_from_credentials do |routes|
+    u = User.find_for_database_authentication(:email => params[:username])
+    u if u && u.valid_password?(params[:password])
+  end
+
 end

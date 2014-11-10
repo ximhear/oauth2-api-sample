@@ -17,3 +17,4 @@
 
 # Ignore settings file
 /config/application.yml
+.idea
